@@ -31,7 +31,7 @@ const EnglishLearningGame = () => {
   const [score, setScore] = useState<number>(0);
   const [answeredQuestions, setAnsweredQuestions] = useState<string[]>([]);
   const [feedback, setFeedback] = useState<string>('');
-  const [showFeedback, setShowFeedback] = useState<boolean>(false);
+  const [showFeedback, setShowFeedback] = useState(false);
   const [timer, setTimer] = useState<number>(30);
   const [timerActive, setTimerActive] = useState<boolean>(false);
   const [timerEnabled, setTimerEnabled] = useState<boolean>(true);
@@ -85,6 +85,20 @@ const EnglishLearningGame = () => {
         options: ['תודה', 'סליחה', 'שלום', 'בבקשה'],
         correctAnswer: 'בבקשה',
         explanation: 'Please = בבקשה, מילת נימוס לבקשה'
+      },
+      {
+        id: 'b6',
+        word: 'Goodbye',
+        options: ['שלום', 'להתראות', 'תודה', 'בבקשה'],
+        correctAnswer: 'להתראות',
+        explanation: 'Goodbye = להתראות, מילת פרידה'
+      },
+      {
+        id: 'b7',
+        word: 'Sorry',
+        options: ['סליחה', 'תודה', 'שלום', 'בבקשה'],
+        correctAnswer: 'סליחה',
+        explanation: 'Sorry = סליחה, מילה להבעת צער או התנצלות'
       }
     ],
     numbers: [
@@ -122,6 +136,20 @@ const EnglishLearningGame = () => {
         options: ['תשע', 'שמונה', 'עשר', 'אחת-עשרה'],
         correctAnswer: 'עשר',
         explanation: 'Ten = עשר, המספר שבא אחרי תשע'
+      },
+      {
+        id: 'n6',
+        word: 'Four',
+        options: ['שלוש', 'ארבע', 'חמש', 'שש'],
+        correctAnswer: 'ארבע',
+        explanation: 'Four = ארבע, המספר שבא אחרי שלוש'
+      },
+      {
+        id: 'n7',
+        word: 'Seven',
+        options: ['שש', 'שבע', 'שמונה', 'תשע'],
+        correctAnswer: 'שבע',
+        explanation: 'Seven = שבע, המספר שבא אחרי שש'
       }
     ],
     colors: [
@@ -159,6 +187,20 @@ const EnglishLearningGame = () => {
         options: ['לבן', 'אפור', 'שחור', 'חום'],
         correctAnswer: 'שחור',
         explanation: 'Black = שחור, צבע הלילה'
+      },
+      {
+        id: 'c6',
+        word: 'White',
+        options: ['שחור', 'אפור', 'לבן', 'חום'],
+        correctAnswer: 'לבן',
+        explanation: 'White = לבן, צבע הניגודיות לשחור'
+      },
+      {
+        id: 'c7',
+        word: 'Orange',
+        options: ['סגול', 'כתום', 'ירוק', 'אדום'],
+        correctAnswer: 'כתום',
+        explanation: 'Orange = כתום, צבע הכתום של תפוז'
       }
     ],
     animals: [
@@ -196,6 +238,20 @@ const EnglishLearningGame = () => {
         options: ['אריה', 'נמר', 'זברה', 'ג׳ירפה'],
         correctAnswer: 'אריה',
         explanation: 'Lion = אריה, "מלך החיות"'
+      },
+      {
+        id: 'a6',
+        word: 'Horse',
+        options: ['פרה', 'סוס', 'כבש', 'עז'],
+        correctAnswer: 'סוס',
+        explanation: 'Horse = סוס, בעל חיים גדול שמשמש לרכיבה'
+      },
+      {
+        id: 'a7',
+        word: 'Elephant',
+        options: ['קוף', 'פיל', 'זברה', 'נמר'],
+        correctAnswer: 'פיל',
+        explanation: 'Elephant = פיל, בעל חיים גדול עם חדק ארוך'
       }
     ],
     letters: [
@@ -238,6 +294,22 @@ const EnglishLearningGame = () => {
         correctAnswer: 'Z',
         explanation: 'Z היא האות האחרונה באלפבית האנגלי, נהגית כמו "זי"',
         image: 'Z'
+      },
+      {
+        id: 'l6',
+        word: 'D',
+        options: ['C', 'E', 'D', 'F'],
+        correctAnswer: 'D',
+        explanation: 'D היא האות הרביעית באלפבית האנגלי, נהגית כמו "די"',
+        image: 'D'
+      },
+      {
+        id: 'l7',
+        word: 'G',
+        options: ['F', 'H', 'G', 'E'],
+        correctAnswer: 'G',
+        explanation: 'G היא האות השביעית באלפבית האנגלי, נהגית כמו "ג׳י"',
+        image: 'G'
       }
     ]
   }), []); // Empty dependency array means this will only be computed once
@@ -310,6 +382,8 @@ const EnglishLearningGame = () => {
   }, [questions, timerEnabled]);
 
   const handleAnswer = useCallback((answer: string | null) => {
+    setShowFeedback(true);
+    
     setTimerActive(false);
     
     if (!currentQuestion) return;
@@ -338,8 +412,6 @@ const EnglishLearningGame = () => {
       setFeedback(`לא נכון. התשובה הנכונה היא: ${currentQuestion.correctAnswer}. ${currentQuestion.explanation}`);
     }
     
-    setShowFeedback(true);
-    
     if (!answeredQuestions.includes(currentQuestion.id)) {
       setAnsweredQuestions(prev => [...prev, currentQuestion.id]);
     }
@@ -364,12 +436,12 @@ const EnglishLearningGame = () => {
     }
   }, [
     currentQuestion, 
-    answeredQuestions, 
     currentQuestionIndex, 
     categoryQuestions, 
+    timerEnabled, 
+    answeredQuestions, 
     selectedCategory, 
-    categories, 
-    timerEnabled,
+    categories,
     selectCategory
   ]);
 
@@ -593,16 +665,27 @@ const EnglishLearningGame = () => {
             </p>
             
             <div className="grid grid-cols-2 gap-3 mt-4">
-              {currentQuestion.options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleAnswer(option)}
-                  className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium py-2 px-4 rounded transition-colors"
-                  disabled={showFeedback}
-                >
-                  {option}
-                </button>
-              ))}
+              {currentQuestion.options.map((option, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      const selectedAnswer = option;
+                      handleAnswer(selectedAnswer);
+                    }}
+                    className={`
+                      font-medium py-2 px-4 rounded transition-all duration-300
+                      ${showFeedback && option === currentQuestion.correctAnswer
+                        ? 'bg-green-500 text-white scale-105' 
+                        : 'bg-blue-50 hover:bg-blue-100 text-blue-700'
+                      }
+                    `}
+                    disabled={showFeedback}
+                  >
+                    {option}
+                  </button>
+                );
+              })}
             </div>
             
             <div className="flex justify-between mt-6">
@@ -624,7 +707,7 @@ const EnglishLearningGame = () => {
           </div>
           
           {showFeedback && (
-            <div className={`mt-4 p-3 rounded ${feedback.startsWith('נכון') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+            <div className={`mt-4 p-3 rounded ${feedback.startsWith('נכון') ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
               {feedback}
               <button 
                 onClick={() => speakWord(currentQuestion.word)}
