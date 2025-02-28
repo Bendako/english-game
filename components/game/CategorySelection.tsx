@@ -1,11 +1,11 @@
 "use client"
 
 import React from 'react';
-import { CategoryType } from '@/types/game';
+import { Category } from '@/types/game';
 
 type CategorySelectionProps = {
-  categories: CategoryType[];
-  onSelectCategory: (category: CategoryType) => void;
+  categories: Category[];
+  onSelectCategory: (category: Category) => void;
   onBackToMenu: () => void;
 };
 
