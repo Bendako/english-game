@@ -2,130 +2,117 @@
 
 ## Project Initialization and Setup
 
-1. **Initial project setup** ✅
-   - ~~Create Next.js project with TypeScript~~
-   - ~~Initialize TailwindCSS~~
-   - ~~Set up ESLint and Prettier configs~~
-   - ~~Create basic folder structure~~
-   - ~~Switch from npm to pnpm~~
-   - ~~Initialize Shadcn UI~~
+1. **Initial project setup** [DONE]
+   - [x] Create Next.js project with TypeScript
+   - [x] Initialize TailwindCSS
+   - [x] Set up ESLint and Prettier configs
+   - [x] Create basic folder structure
+   - [x] Switch from npm to pnpm
+   - [x] Initialize Shadcn UI
 
-2. **Core folder structure setup** ✅
-   - ~~Create /app directory with basic routes~~
-   - ~~Create /components directory~~
-   - ~~Create /contexts directory~~
-   - ~~Create /types directory~~
-   - ~~Create /data directory~~
-   - ~~Create /hooks directory~~
+2. **Core folder structure setup** [DONE]
+   - [x] Create /app directory with basic routes
+   - [x] Create /components directory
+   - [x] Create /contexts directory
+   - [x] Create /types directory
+   - [x] Create /data directory
+   - [x] Create /hooks directory
 
-3. **Base TypeScript types** ✅
-   - ~~Define Question interface~~
-   - ~~Define Category interface~~
-   - ~~Define GameState type~~
-   - ~~Define UserPreferences type~~
+3. **Base TypeScript types** [DONE]
+   - [x] Define Question interface
+   - [x] Define Category interface
+   - [x] Define GameState type
+   - [x] Define UserPreferences type
 
 ## Core Structure and Navigation
 
-4. **Layout component** ✅
-   - ~~Create base layout with header/footer~~
-   - ~~Implement responsive container~~
+4. **Layout component** [DONE]
+   - [x] Create base layout with header/footer
+   - [x] Implement responsive container
 
-5. **Navigation system** ✅
-   - ~~Create basic navigation between screens~~
-   - ~~Implement route protection/redirection~~
+5. **Navigation system** [DONE]
+   - [x] Create basic navigation between screens
+   - [x] Implement route protection/redirection
 
 ## State Management Implementation
 
-6. **Game context setup** ✅
-   - ~~Create GameContext~~
-   - ~~Implement initial state~~
-   - ~~Add basic state transitions~~
+6. **Game context setup** [DONE]
+   - [x] Create GameContext
+   - [x] Implement initial state
+   - [x] Add basic state transitions
 
-7. **Audio context**
+7. **Audio context** [IN PROGRESS]
    - Create AudioContext
    - Implement audio preferences storage
    - Add audio playback controls
+   - Add text-to-speech functionality [DONE]
+   - Set default audio to off
+   - Implement audio toggle functionality
+
+8. **Timer settings** [IN PROGRESS]
+   - Set default timer to off
+   - Create timer toggle option
+   - Implement user preference for timer state
 
 ## Game Components Development
 
-8. **Menu screen**
-   - Create menu UI
-   - Implement navigation to category selection
-   - Add audio controls access
+9. **Menu screen** [DONE]
+   - [x] Create menu UI
+   - [x] Implement navigation to category selection
+   - [x] Add audio controls access
 
-9. **Category selection screen**
-   - Create category cards
-   - Implement category selection logic
-   - Add navigation to game screen
+10. **Category selection screen** [DONE]
+    - [x] Create category cards
+    - [x] Implement category selection logic
+    - [x] Add navigation to game screen
 
-10. **Game screen foundation**
-    - Create game screen layout
-    - Implement question display component
-    - Add answer option components
+11. **Game screen foundation** [DONE]
+    - [x] Create game screen layout
+    - [x] Implement question display component
+    - [x] Add answer option components
+    - Add visual feedback for answer selection [DONE]
+    - Increase question variety [DONE]
 
-11. **Results screen**
+12. **Results screen** [NOT STARTED]
     - Create results display
     - Implement score calculation
     - Add play again functionality
 
 ## Game Logic and Functionality
 
-12. **Timer functionality**
-    - Create timer hook
-    - Implement countdown logic
-    - Add timer display component
+13. **Timer functionality** [DONE]
+    - [x] Create timer hook
+    - [x] Implement countdown logic
+    - [x] Add timer display component
+    - Modify timer to be optional/off by default
 
-13. **Question navigation**
-    - Create previous/next question functionality
-    - Implement question tracking system
+14. **Question navigation** [DONE]
+    - [x] Create previous/next question functionality
+    - [x] Implement question tracking system
 
-14. **Scoring system**
-    - Implement scoring logic
-    - Create score display component
-    - Add score tracking
+15. **Scoring system** [DONE]
+    - [x] Implement scoring logic
+    - [x] Create score display component
+    - [x] Add score tracking
 
-15. **Game data implementation**
-    - Create sample questions and categories
-    - Implement data loading system
+16. **Game data implementation** [DONE]
+    - [x] Create sample questions and categories
+    - [x] Implement data loading system
+    - Add more diverse questions [DONE]
 
 ## Styling and UI Refinements
 
-16. **Base styling with TailwindCSS**
-    - Create color scheme
-    - Implement responsive designs
-    - Add animation utilities
+17. **Base styling with TailwindCSS** [DONE]
+    - [x] Create color scheme
+    - [x] Implement responsive designs
+    - [x] Add animation utilities
 
-17. **UI components styling**
-    - Style buttons and interactive elements
-    - Implement card designs
+18. **UI components styling** [IN PROGRESS]
+    - [x] Style buttons and interactive elements
+    - Create card designs
     - Create loading states
 
-18. **Accessibility improvements**
-    - Add keyboard navigation
-    - Implement ARIA attributes
-    - Add screen reader compatible elements
-
-## Testing and Optimization
-
-19. **Component testing**
-    - Write component tests
-    - Create utility test functions
-
-20. **State management testing**
-    - Test context providers
-    - Create mock state scenarios
-
-21. **Performance optimization**
-    - Add code splitting
-    - Implement image optimization
-    - Add prefetching for common routes
-
-22. **Responsive design polishing**
-    - Test on various screen sizes
-    - Fix any responsive issues
-    - Implement mobile-specific interactions
-
-23. **Final cleanup**
-    - Code refactoring
-    - Documentation updates
-    - Remove unused code and dependencies
+Legend:
+[DONE] Completed
+[IN PROGRESS] In Progress
+[NOT STARTED] Not Started
